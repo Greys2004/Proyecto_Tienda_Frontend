@@ -1,0 +1,43 @@
+/* Estilos para el botón Login/Register */
+.login-btn {
+    color: #555;
+    font-size: 16px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.login-btn:hover {
+    color: #f98b3e;
+}
+
+/* Estilos para el modal */
+.modal-content {
+    border-radius: 10px;
+}
+
+.modal-header {
+    background-color: #f98b3e;
+    color: #fff;
+    border-bottom: none;
+}
+
+.modal-title {
+    font-weight: bold;
+}
+
+.modal-body {
+    padding: 20px;
+}
+
+.modal-body .form-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.modal-body .btn {
+    border-radius: 5px;
+}
+
+.collapse {
+    margin-top: 15px;
+}

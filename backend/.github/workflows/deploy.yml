@@ -1,0 +1,29 @@
+name: Build and push docker image
+
+on:
+  push:
+    branches:
+      - master
+   workflow_dispatch: 
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4 # Ajuste de sangría correcto
+
+      - name: Login to DockerHub
+        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Build docker image
+        run: docker build -t pipeanayaparada/apiTienda:${{ github.sha }} .
+
+      - name: Push docker image
+        run: |
+          docker push pipeanayaparada/apiTienda:${{ github.sha }}
+          docker push pipeanayaparada/apiTienda:latest
+
+      - name: Notificar estado
+        if: always()
+        run: echo "El pipeline finalizó con el estado: ${{ job.status }}"
