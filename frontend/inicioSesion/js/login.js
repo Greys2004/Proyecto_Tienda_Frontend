@@ -78,9 +78,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     showMessage('Inicio de sesión exitoso', 'success');
                     closeModal();
-                    // Guardar el rol en localStorage para usarlo en index_2.html
-                    localStorage.setItem('userRole', result.usuario.roles[0]);
-                    window.location.href = 'index_2.html';
+                    
+                    // Verificar el rol y redirigir
+                    if (result.rol === 'admin') {
+                        window.location.href = 'admin.html'; // Redirigir a admin.html si es admin
+                    } else {
+                        window.location.href = 'index.html'; // Redirigir a index.html si es cliente o usuario
+                    }
                 } else {
                     showMessage(result.mensaje || 'Credenciales incorrectas', 'error');
                 }
