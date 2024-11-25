@@ -1,0 +1,84 @@
+/* Contenedor para la tabla */
+#order-details-container {
+    width: 35%; /* Ajusta al ancho que prefieras */
+    margin-left: auto; /* Empuja el contenedor a la derecha */
+    margin-right: 0; /* Asegura que no haya margen a la derecha */
+}
+
+/* Tabla de detalles del pedido */
+.order-details-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+}
+
+.order-details-table thead th {
+    background-color: #e6ac5c; /* Fondo verde moderno */
+    color: white;
+    font-weight: bold;
+    text-align: left;
+    padding: 12px 15px;
+}
+
+.order-details-table tbody tr {
+    border-bottom: 1px solid #ddd; /* Línea divisoria entre filas */
+    background-color: #f8e4d5;
+}
+
+.order-details-table tbody tr:nth-child(even) {
+    background-color: #f8e4d5;; /* Alterna colores para filas pares */
+}
+
+.order-details-table tbody td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+.order-details-table tfoot tr {
+    background-color: #f4f4f4; /* Fondo claro para el pie */
+    font-weight: bold;
+    border-top: 2px solid #ddd;
+}
+
+.order-details-table tfoot td {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Resaltar la fila de total */
+.order-details-table tfoot tr:last-child td {
+    font-size: 18px;
+    color: #000;
+    border-top: 3px solid #af774c; /* Línea gruesa verde antes del total */
+}
+
+.product-details {
+    display: none;
+    background-color: #f9f9f9;
+    padding: 10px;
+    font-size: 14px;
+    color: #666;
+    border-top: 1px solid #ddd;
+}
+
+#toggle-products {
+    width: auto !important; /* Deja que el botón tome solo el espacio necesario para el texto */
+    padding: 10px 20px;
+    margin: 20px 0;
+    display: inline-block;
+    text-align: center;
+    max-width: 200px; /* Ajusta el ancho máximo */
+}
+
+#toggle-products:hover {
+    background-color: #0056b3; /* Cambia el color de fondo al pasar el cursor */
+}

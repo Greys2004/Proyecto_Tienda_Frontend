@@ -2753,3 +2753,10 @@ html {
   }
 }
 
+.site-logo img {
+  width: 40px; /* Cambia el tamaño según sea necesario */
+  height: auto; /* Mantiene la proporción de la imagen */
+  max-width: 100%; /* Asegura que no se desborde */
+  color: white;
+  
+}

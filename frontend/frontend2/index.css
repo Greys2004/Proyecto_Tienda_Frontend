@@ -1,0 +1,220 @@
+/* Contenedor principal de productos */
+.product-section .row {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en filas */
+    gap: 20px; /* Espaciado entre las tarjetas */
+    justify-content: center; /* Centra las filas */
+}
+
+/* Cada tarjeta ocupa un tercio del ancho */
+.product-section .col-lg-4,
+.product-section .col-md-6 {
+    flex: 0 0 calc(33.333% - 20px); /* Cada tarjeta ocupa el 33.33% del ancho menos el gap */
+    max-width: calc(33.333% - 20px);
+    display: flex; /* Asegura que las tarjetas llenen el espacio */
+}
+
+/* Tarjetas de productos */
+.single-product-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Espacia uniformemente los elementos */
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    height: 100%; /* Uniforma la altura de las tarjetas */
+}
+
+.single-product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Imagen del producto */
+.product-image {
+    width: 100%; /* Asegura que ocupe el ancho del contenedor */
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.product-image img {
+    max-width: 100%; /* La imagen se ajustará al ancho disponible */
+    height: auto;
+    object-fit: contain;
+    border-radius: 5px;
+}
+
+/* Título del producto */
+h3 {
+    font-size: 1rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    word-wrap: break-word; /* Evita que los títulos se desborden */
+}
+
+/* Precio del producto */
+.product-price {
+    margin: 10px 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+/* Botón */
+.cart-btn {
+    margin-top: 15px; /* Separa el botón del contenido */
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: #fff;
+    text-transform: uppercase;
+    border-radius: 5px;
+    text-align: center;
+    white-space: normal; /* Permite que el texto ocupe varias líneas */
+    transition: background-color 0.2s ease;
+}
+
+.cart-btn:hover {
+    background-color: #e65a50;
+}
+
+.section-title {
+    text-align: center; /* Asegura que el texto esté centrado */
+    margin: 0 auto; /* Centra el bloque en su contenedor */
+}
+
+.section-title h3 {
+    font-size: 2.5rem; /* Tamaño ajustable del título */
+    color: #333; /* Color del texto */
+    font-weight: 700; /* Asegura un estilo negrita */
+    margin-bottom: 10px; /* Espaciado entre el título y la descripción */
+}
+
+.section-title p {
+    font-size: 1.2rem; /* Tamaño ajustable del párrafo */
+    color: #666; /* Color del texto */
+    line-height: 1.5; /* Aumenta la legibilidad */
+}
+
+/* Reduce el espacio entre el título y la sección de arriba */
+.list-section {
+    margin-bottom: 10px; /* Reduce la distancia debajo de las características */
+}
+
+/* Aumenta el espacio entre el título y las tarjetas de productos */
+.product-section .section-title {
+    margin-bottom: 40px; /* Más espacio debajo del título */
+}
+
+/* Espaciado general entre las tarjetas y otras secciones */
+.product-section {
+    padding-top: 10px; /* Reduce el espacio superior */
+    padding-bottom: 100px; /* Mantén espacio inferior amplio */
+}
+
+/* Reducir aún más el espacio inferior de la sección de productos */
+.product-section {
+    margin-bottom: 20px; /* Reduce el espacio inferior a 20px */
+}
+
+/* Reducir aún más el espacio superior de la sección de banner */
+.cart-banner {
+    padding-top: 10px; /* Reduce el espacio superior a 10px */
+}
+
+/* Ajustar márgenes internos del título y contenido si es necesario */
+.product-section .section-title {
+    margin-bottom: 15px; /* Espacio menor entre título y contenido */
+}
+
+.cart-banner .content-column h3 {
+    margin-bottom: 5px; /* Espacio menor entre el título del banner */
+}
+
+.cart-banner .price-box {
+    position: absolute;
+    top: 10px; /* Espacio desde la parte superior */
+    left: 10px; /* Espacio desde la parte izquierda */
+    z-index: 2; /* Asegura que esté por encima de todo */
+}
+
+.cart-banner .price-box .inner-price {
+    background: orange;
+    color: white;
+    border-radius: 50%;
+    width: 80px; /* Tamaño del círculo */
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px; /* Tamaño del texto */
+    font-weight: bold;
+}
+
+.cart-banner .image {
+    position: relative; /* Necesario para posicionar el círculo dentro del contenedor */
+    text-align: center;
+}
+
+.cart-banner .image img {
+    width: 400px; /* Tamaño de la imagen */
+    height: auto;
+    display: inline-block;
+    z-index: 1; /* Asegura que la imagen esté por debajo del círculo */
+}
+
+.site-logo img {
+    width: 40px; /* Cambia el tamaño según sea necesario */
+    height: auto; /* Mantiene la proporción de la imagen */
+    max-width: 100%; /* Asegura que no se desborde */
+    color: white;
+    
+}
+
+.client-meta h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.client-meta h3 span {
+    display: block;
+    font-size: 70%;
+    margin-top: 10px;
+    color: #051922;
+    font-weight: 600;
+    opacity: 0.5;
+}
+
+p.testimonial-body {
+    font-size: 17px;
+    font-style: italic;
+    width: 700px;
+    margin: 0 auto;
+    line-height: 1.8;
+    color: #999999;
+    margin-top: 20px;
+}
+
+.last-icon {
+    margin-top: 20px;
+    font-size: 25px;
+    opacity: 0.3;
+}
+
+.client-avater img {
+    width: 150px; /* Ajusta el tamaño de la imagen */
+    height: 150px; /* Asegúrate de que sea un cuadrado */
+    border-radius: 50%; /* Hace que la imagen sea circular */
+    object-fit: cover; /* Asegura que la imagen no se distorsione */
+    border: 2px solid #ccc; /* (Opcional) Añade un borde alrededor */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* (Opcional) Añade sombra */
+}
+
