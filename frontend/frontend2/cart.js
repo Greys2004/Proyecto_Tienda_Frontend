@@ -1,11 +1,15 @@
 // Obtener productos del carrito y renderizarlos
 const fetchCartProducts = async () => {
     try {
-        // Obtener los productos almacenados en el carrito desde localStorage
-        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+        const response = await fetch('http://localhost:3000/productos');
+        const productos = await response.json();
 
-        // Si no hay productos en el carrito, mostrar mensaje vacío
+        // Guardar productos en localStorage
+        localStorage.setItem('productos', JSON.stringify(productos));
+
+        const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
         if (cartItems.length === 0) {
+            // Renderizar carrito vacío
             document.querySelector('.cart-table tbody').innerHTML = `
                 <tr>
                     <td colspan="6" style="text-align: center;">Your cart is empty.</td>
@@ -15,16 +19,13 @@ const fetchCartProducts = async () => {
             return;
         }
 
-        // Llamar al backend para obtener información actualizada de los productos
-        const response = await fetch('http://localhost:3000/productos');
-        const productos = await response.json();
-
         renderCartProducts(cartItems, productos);
     } catch (error) {
         console.error('Error al cargar productos del carrito:', error);
-        alert('No se pudieron cargar los productos. Verifica la conexión con el servidor.');
+        alert('No se pudieron cargar los productos.');
     }
 };
+
 
 // Renderizar los productos del carrito en la tabla
 const renderCartProducts = (cartItems, productos) => {
@@ -118,6 +119,37 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+
+// Renderizar productos en "Detalles del Pedido"
+// Renderizar los detalles del pedido en checkout.html
+const renderOrderDetails = (cartItems, productos) => {
+    const orderDetailsBody = document.getElementById('order-details-body');
+    if (!orderDetailsBody) return;
+
+    orderDetailsBody.innerHTML = ''; // Limpiar contenido previo
+    let subtotal = 0;
+
+    cartItems.forEach(cartItem => {
+        const producto = productos.find(p => p._id === cartItem.id);
+        if (producto) {
+            const totalProducto = producto.precio * cartItem.cantidad;
+            subtotal += totalProducto;
+
+            const productRow = `
+                <tr>
+                    <td>${producto.nombre} x${cartItem.cantidad}</td>
+                    <td>$${totalProducto.toFixed(2)}</td>
+                </tr>
+            `;
+            orderDetailsBody.innerHTML += productRow;
+        }
+    });
+
+    const shipping = 10; // Ejemplo de costo de envío
+    document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+    document.getElementById('cart-shipping').textContent = `$${shipping.toFixed(2)}`;
+    document.getElementById('cart-total').textContent = `$${(subtotal + shipping).toFixed(2)}`;
+};
 
     // Vaciar el carrito
     document.getElementById('empty-cart').addEventListener('click', (e) => {
