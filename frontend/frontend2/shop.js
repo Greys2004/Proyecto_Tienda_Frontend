@@ -131,12 +131,17 @@ const filterProductos = (filterValue) => {
 const fetchCategorias = async () => {
     try {
         const response = await fetch('http://localhost:3000/categorias');
-        const categorias = await response.json();
-        renderCategorias(categorias);
+        if (response.ok) {
+            const categorias = await response.json();
+            renderCategorias(categorias);
+        } else {
+            console.error('Error al cargar las categorías:', await response.text());
+        }
     } catch (error) {
-        console.error('Error al cargar las categorías:', error);
+        console.error('Error al conectar con el servidor para cargar categorías:', error);
     }
 };
+
 
 // Función para renderizar categorías en los filtros
 const renderCategorias = (categorias) => {
