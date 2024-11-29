@@ -1,0 +1,31 @@
+name: Build and push docker image
+
+on:
+  push:
+    branches:
+      - master
+   workflow_dispatch: 
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clone repository
+        uses: actions/checkout@v4 # Ajuste de sangría correcto
+
+      - name: Login to DockerHub
+        run: docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+
+      - name: Build docker image
+        run: |
+        cd frontend2
+        docker build -t greys04/frontend:${{ github.sha }} .
+
+      - name: Push docker image
+        run: |
+          docker push greys04/frontend:${{ github.sha }}
+          docker push greys04/frontend:latest
+
+      - name: Notificar estado
+        if: always()
+        run: echo "El pipeline finalizó con el estado: ${{ job.status }}"
