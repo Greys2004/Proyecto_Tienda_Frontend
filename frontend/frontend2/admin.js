@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch(`http://localhost:3000/productos`, {
+                const response = await fetch(`https://testapi5.starwarsstore.store/productos`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch(`http://localhost:3000/categorias`, {
+                const response = await fetch(`https://testapi5.starwarsstore.store/categorias`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

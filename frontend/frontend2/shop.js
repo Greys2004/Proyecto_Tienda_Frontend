@@ -6,7 +6,7 @@ let productosFiltrados = []; // Productos filtrados globalmente
 // Función para obtener productos desde el backend
 const fetchProductos = async () => {
     try {
-        const response = await fetch('http://localhost:3000/productos');
+        const response = await fetch('https://testapi5.starwarsstore.store/productos');
         allProductos = await response.json();
         productosFiltrados = allProductos; // Inicialmente todos los productos están filtrados
         renderProductos(currentPage, productosFiltrados);
@@ -130,7 +130,7 @@ const filterProductos = (filterValue) => {
 // Función para obtener categorías desde el backend
 const fetchCategorias = async () => {
     try {
-        const response = await fetch('http://localhost:3000/categorias');
+        const response = await fetch('https://testapi5.starwarsstore.store/categorias');
         if (response.ok) {
             const categorias = await response.json();
             renderCategorias(categorias);

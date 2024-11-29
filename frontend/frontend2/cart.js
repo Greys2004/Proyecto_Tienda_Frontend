@@ -1,7 +1,7 @@
 // Obtener productos del carrito y renderizarlos
 const fetchCartProducts = async () => {
     try {
-        const response = await fetch('http://localhost:3000/productos');
+        const response = await fetch('https://testapi5.starwarsstore.store/productos');
         const productos = await response.json();
 
         // Guardar productos en localStorage

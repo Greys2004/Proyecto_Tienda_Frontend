@@ -4,8 +4,8 @@ let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 let btnComprar = document.getElementById('btnComprar');
 let productosCarrito = document.getElementById('productosCarrito');
 let subtotal = document.getElementById('subtotal');
-const URL = "http://localhost:3000/productos";
-const URL2 = "http://localhost:3000/categorias";
+const URL = "https://testapi5.starwarsstore.store/productos";
+const URL2 = "https://testapi5.starwarsstore.store/categorias";
 
 document.addEventListener('DOMContentLoaded', (event) => {
     const darkModeToggle = document.getElementById('darkModeToggle');

@@ -1,7 +1,7 @@
 // Función para cargar productos destacados y elegir uno aleatorio para el contador
 const fetchFeaturedProducts = async () => {
     try {
-        const response = await fetch('http://localhost:3000/productos');
+        const response = await fetch('https://testapi5.starwarsstore.store/productos');
         const allProducts = await response.json();
 
         // Seleccionar los primeros tres productos

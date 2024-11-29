@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch(`http://localhost:3000/usuarios`, {
+                const response = await fetch(`https://testapi5.starwarsstore.store/usuarios`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const data = { correo: email, contrasena: password };
 
             try {
-                const response = await fetch(`http://localhost:3000/login`, {
+                const response = await fetch(`https://testapi5.starwarsstore.store/login`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
