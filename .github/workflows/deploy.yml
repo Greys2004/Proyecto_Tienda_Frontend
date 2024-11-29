@@ -18,6 +18,9 @@ jobs:
         run: |
           cd frontend/frontend2
           docker build -t greys04/frontend:${{ github.sha }} .
+      - name: Tag latest
+        run: |
+          docker tag greys04/frontend:${{ github.sha }} greys04/frontend:latest
 
       - name: Push docker image
         run: |
