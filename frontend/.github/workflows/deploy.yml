@@ -26,6 +26,3 @@ jobs:
           docker push greys04/frontend:${{ github.sha }}
           docker push greys04/frontend:latest
 
-      - name: Notificar estado
-        if: always()
-        run: echo "El pipeline finalizó con el estado: ${{ job.status }}"
