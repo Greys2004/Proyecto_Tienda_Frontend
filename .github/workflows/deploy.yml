@@ -16,8 +16,8 @@ jobs:
 
       - name: Build docker image
         run: |
-        cd frontend/frontend2
-        docker build -t greys04/frontend:${{ github.sha }} .
+          cd frontend/frontend2
+          docker build -t greys04/frontend:${{ github.sha }} .
 
       - name: Push docker image
         run: |
